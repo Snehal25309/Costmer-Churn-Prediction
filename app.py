@@ -9,14 +9,17 @@ FILE_ID = "1aDsOev9d0C8osAHO0LYScAuamsk50mU3"
 OUTPUT = "similarity.joblib"
 
 if not os.path.exists(OUTPUT):
-    url = f"https://drive.google.com/uc?id={FILE_ID}"
-    gdown.download(url, OUTPUT, quiet=False)
+    gdown.download(
+    f"https://drive.google.com/uc?export=download&id={FILE_ID}",
+    OUTPUT,
+    quiet=False
+)
 
 similarity = joblib.load(OUTPUT)
 
 # Load label encoders correctly
 label_encoder = pkl.load(open("label_encoder.pkl", 'rb'))
-model=pkl.load(open("model.pkl",'rb'))
+# model=pkl.load(open("model.pkl",'rb'))
 
 
 st.write("This is a web application")

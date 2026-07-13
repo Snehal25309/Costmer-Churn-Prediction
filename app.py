@@ -1,6 +1,18 @@
 import streamlit as st
 import pickle as pkl
 import pandas as pd
+import os
+import gdown
+import joblib
+
+FILE_ID = "1aDsOev9d0C8osAHO0LYScAuamsk50mU3"
+OUTPUT = "similarity.joblib"
+
+if not os.path.exists(OUTPUT):
+    url = f"https://drive.google.com/uc?id={FILE_ID}"
+    gdown.download(url, OUTPUT, quiet=False)
+
+similarity = joblib.load(OUTPUT)
 
 # Load label encoders correctly
 label_encoder = pkl.load(open("label_encoder.pkl", 'rb'))

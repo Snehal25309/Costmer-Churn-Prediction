@@ -6,7 +6,7 @@ import gdown
 import joblib
 
 FILE_ID = "1aDsOev9d0C8osAHO0LYScAuamsk50mU3"
-OUTPUT = "similarity.joblib"
+OUTPUT = "model.joblib"
 
 if not os.path.exists(OUTPUT):
     gdown.download(
@@ -15,11 +15,11 @@ if not os.path.exists(OUTPUT):
     quiet=False
 )
 
-similarity = joblib.load(OUTPUT)
+model = joblib.load(OUTPUT)
 
 # Load label encoders correctly
 label_encoder = pkl.load(open("label_encoder.pkl", 'rb'))
-model=joblib.load(open("model.pkl",'rb'))
+#model=pkl.load(open("model.pkl",'rb'))
 
 
 st.write("This is a web application")

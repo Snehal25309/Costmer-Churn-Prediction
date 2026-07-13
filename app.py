@@ -19,7 +19,7 @@ similarity = joblib.load(OUTPUT)
 
 # Load label encoders correctly
 label_encoder = pkl.load(open("label_encoder.pkl", 'rb'))
-model=pkl.load(open("model.pkl",'rb'))
+model=joblib.load(open("model.pkl",'rb'))
 
 
 st.write("This is a web application")
